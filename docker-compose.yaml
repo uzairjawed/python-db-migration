@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  mysql:
+    image: 'percona:5.7'
+    volumes:
+     - ./mysqldata:/var/lib/mysql
+     - ./percona/my.cnf:/etc/my.cnf
+    environment:
+      MYSQL_DATABASE: 'ecs'
+      MYSQL_ROOT_PASSWORD: 'ecs'
+      MYSQL_USER: 'ecs'
+      MYSQL_PASSWORD: 'ecs'
+    ports:
+      - 3306:3306
+    networks:
+      - ecs
+  shell:
+    build: ./shell
+    volumes:
+      - ./scripts/:/opt/ecs-scripts/
+    tty: true 
+    depends_on:
+     - mysql
+    networks:
+     - ecs
+networks:
+  ecs:
