@@ -27,5 +27,6 @@ python migrations.py [DBUSER] [DBHOST [DBNAME] [DBPASS]
 - Please change the database credentials in **docker-compose.yaml** file if you need to.
 - There is no need to use docker based approach, you can still use the migration script as mentioned in **Usage** section if you have the database credentials & versionsTable ready.
 - The migrations will only work with MySQL service.
+- Some sample sql scripts have been provided in the scripts directory. Please feel free to modify or remove them.
 - This is not the best solution and it has much room for the improvement. I am keen to listen your feedback.
 
